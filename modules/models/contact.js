@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ContactSchema = new Schema({
     name : {type : String , required: true},
-    phoneNumber : [
+    phoneNumbers : [
         {
             type : {type: String} ,
             number : {type : String }

@@ -9,8 +9,8 @@ const contactController = require(`${ControllerApi}/v1/contactController`)
 
     //Authentication
     const authentication = express.Router();
-    authentication.post('/register' , userController.register.bind(authentication));
-    authentication.post('/login' , userController.login.bind(authentication));
+    authentication.post('/register' , userController.register.bind(userController));
+    authentication.post('/login' , userController.login.bind(userController));
     router.use('/user' , authentication);
 
     //Contact crud
