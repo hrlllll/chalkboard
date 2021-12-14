@@ -1,4 +1,11 @@
+const path = require('path');
 module.exports = {
-    port : 8002,
-    mongoose : 'mongodb://localhost:27017/chalkboard'
+    port : 3733,
+    mongoose : 'mongodb://localhost:27017/chalkboard',
+    path : {
+        controller : {
+            api : path.resolve('./modules/controllers')
+        } ,
+        model : path.resolve('./modules/models'),
+    }
 }

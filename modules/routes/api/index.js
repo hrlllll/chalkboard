@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/' , (req , res) => {
-    res.json('welcome')
-});
+const apiV1 = require('./api-v1');
 
+router.use('/v1' , apiV1);
 
 module.exports = router;

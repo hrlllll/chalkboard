@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
-const {PhoneType} = require("../type/user");
 const Schema = mongoose.Schema;
 const ContactSchema = new Schema({
     name : {type : String , required: true},
     phoneNumber : [
         {
-            type : {
-                type: PhoneType,
-                enum: Object.values(PhoneType)
-            } ,
+            type : {type: String} ,
             number : {type : String }
         }
     ],
