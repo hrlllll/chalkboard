@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+//middleware
+const apiAuth = require('./middleware/apiAuth')
 
 //controllers
 const {api : ControllerApi } = config.path.controller
@@ -19,6 +21,6 @@ const contactController = require(`${ControllerApi}/v1/contactController`)
     contact.post('/new' , contactController.store.bind(contactController));
     contact.put('/edit/:id' , contactController.update.bind(contactController));
     contact.delete('/remove/:id' , contactController.remove.bind(contactController));
-    router.use('/contact' , contact);
+    router.use('/contact' , apiAuth, contact);
 
     module.exports = router;

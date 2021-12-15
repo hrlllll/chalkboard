@@ -1,6 +1,7 @@
 const path = require('path');
 module.exports = {
     port : 3733,
+    secret : 'wsbhnoqe@!#@T#EGHWRHrwshmwopemhgweomgy%@!%!#^Y#@YEWgewg',
     mongoose : 'mongodb://localhost:27017/chalkboard',
     path : {
         controller : {

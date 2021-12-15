@@ -24,6 +24,8 @@ module.exports =  class Controller {
             }
             resolve(true)
 
+        }).catch((e) => {
+            console.log(e)
         })
 
     }
