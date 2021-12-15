@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "1bced607-6c4b-48fa-af25-d77a8ff9c7a2",
+		"name": "chalkcoard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"mahdimewis2drmahdi2@yahoo.com\",\n    \"password\" : \"132\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3733/api/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"mahdimirmahdi@yahoo.com\",\n    \"password\" : \"132\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3733/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact",
+			"item": [
+				{
+					"name": "get list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiOTEzOTU5OWE4N2ExYzUwYWY4ZjliIiwiaWF0IjoxNjM5NTI1NzIwLCJleHAiOjE2Mzk5MjE3MjB9.uGfQoFBf8iYm6XvW0oxh7fUgVTLqiNL-W9KoIsnoW1w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3733/api/v1/contact/getList?limit=5&page=11&name=1&createAt=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"contact",
+								"getList"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "11"
+								},
+								{
+									"key": "name",
+									"value": "1"
+								},
+								{
+									"key": "createAt",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiOTEzOTU5OWE4N2ExYzUwYWY4ZjliIiwiaWF0IjoxNjM5NTI1NzIwLCJleHAiOjE2Mzk5MjE3MjB9.uGfQoFBf8iYm6XvW0oxh7fUgVTLqiNL-W9KoIsnoW1w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"ef\",\n    \"phoneNumbers\" : [\n        {\n            \"type\" : \"home\" ,\n            \"number\" : \"09121019898\"\n        }\n    ],\n    \"emailAddress\" : \"mahdimirmahdi@yahoo.com\",\n    \"mailingAddress\" : \"mahdimirmahdiJazzzi@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3733/api/v1/contact/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"contact",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove contact",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiOTJkMTdjNWZkZTU4MjJkZDBlNGVkIiwiaWF0IjoxNjM5NTI2MDE0LCJleHAiOjE2Mzk5MjIwMTR9.WmS8X6aRnz-dmsLVM8CfwnfHyajHAG7iT9Z_8CmGhrY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3733/api/v1/contact/remove/61b92ce4c99c59802cee94f3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"contact",
+								"remove",
+								"61b92ce4c99c59802cee94f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updated",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjFiOTEzOTU5OWE4N2ExYzUwYWY4ZjliIiwiaWF0IjoxNjM5NTI3ODAyLCJleHAiOjE2Mzk5MjM4MDJ9.AK9_6PamG-oAnrnaSUg45dOHSHtFliQfLIqR5pZOFTk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailAddress\" : \"mahdi2@yahoo.com\",\n    \"mailingAddress\" : \"mahdi123@yahoo.com\",\n    \"name\" : \"ali\",\n     \"phoneNumbers\": [\n            {\n                \"type\": \"office\",\n                \"number\": \"09121019898\"\n            } ,\n                   {\n                \"type\": \"home\",\n                \"number\": \"09121019898\"\n            }\n        ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3733/api/v1/contact/edit/61b92ce4c99c59802cee94f3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3733",
+							"path": [
+								"api",
+								"v1",
+								"contact",
+								"edit",
+								"61b92ce4c99c59802cee94f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
