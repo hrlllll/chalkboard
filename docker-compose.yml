@@ -2,7 +2,7 @@ version: "3"
 services:
   chalkboard:
     container_name: chalkboard
-    image: chalkboard
+    image: hrl3733/chalkboad
     restart: always
     build: .
     command: npm start
