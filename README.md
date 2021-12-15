@@ -1,4 +1,4 @@
-de# Phone book API challenge
+## Phone book API challenge
 
 The aim is to create an API that will serve as the backend for a phone book app, providing a list of people and their contact details.
 
