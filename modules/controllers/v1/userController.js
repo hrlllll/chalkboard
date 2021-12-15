@@ -10,10 +10,15 @@ module.exports = new class UserController extends Controller{
         req.checkBody('password' , 'Password length should be 3 to 10 characters').isLength({ min: 3, max: 10 })
         this.showValidationErrors(req, res).then((valid) => {
             if (valid) {
-                this.model.User({
+                this.model.User.create({
                     email : req.body.email,
                     password : req.body.password
-                }).save(error => {
+                }).then((user) => {
+                    res.json({
+                        success : true,
+                        data : new UserTransform().transform(user , true),
+                    })
+                }).catch((error) => {
                     if (error) {
                         if (error.code === 11000) {
                             res.json({
@@ -26,10 +31,6 @@ module.exports = new class UserController extends Controller{
                             data : error
                         })
                     }
-                    res.status(200).json({
-                        success : true,
-                        data : 'token'
-                    })
                 })
             }
         }).catch((err) => {

@@ -34,19 +34,24 @@ module.exports = new class ContactController extends Controller{
         req.checkBody('mailingAddress' , 'mailingAddress is not valid').isEmail()
         this.showValidationErrors(req, res).then((valid) => {
             if (valid) {
-                let newContact = new this.model.Contact({
+                this.model.Contact.create({
                     name : req.body.name ,
                     user: req.user._id,
                     phoneNumbers : req.body.phoneNumbers ,
                     emailAddress : req.body.emailAddress ,
                     mailingAddress : req.body.mailingAddress ,
-                }).save(error => {
-                    if (error) throw error;
+                }).then((data) => {
                     res.json({
-                        data : newContact ,
+                        data : data ,
                         success : true
                     })
+                }).catch((e) => {
+                    res.json({
+                        success : false,
+                        data : e
+                    })
                 })
+
             }
         }).catch((err) => {
             res.json({
