@@ -4,7 +4,7 @@
   "description": "phone book api",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "./node_modules/mocha/bin/mocha ./modules/test/test.server.js --reporter spec"
   },
   "repository": {

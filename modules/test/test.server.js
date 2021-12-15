@@ -21,7 +21,7 @@ let contact_id
 
 chai.use(chaiHttp);
 
-describe('Todo API', function() {
+describe('Phone Book API', function() {
     before(function(done) {
         User.findOneAndDelete({email : 'tester@yahoo.com'}, (err , user) => {
          done();

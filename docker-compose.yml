@@ -1,0 +1,19 @@
+version: "3"
+services:
+  chalkboard:
+    container_name: chalkboard
+    image: chalkboard
+    restart: always
+    build: .
+    command: npm start
+    ports:
+      - "3733:3733"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27018:27017'
