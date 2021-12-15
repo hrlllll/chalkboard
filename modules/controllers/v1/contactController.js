@@ -4,22 +4,29 @@ const ContactTransform = require(`${config.path.transform}/ContactTransform`);
 module.exports = new class ContactController extends Controller{
 
     index(req , res) {
-        this.model.Contact.find({user : req.user._id} , ( err , contacts) => {
-            if (err) throw err;
+        const page = parseInt(req.query.page) || 1
+        const limit = parseInt(req.query.limit) || 2
+        let sort = {}
+        if (req.query.createdAt) {
+            sort.createdAt = parseInt(req.query.createdAt)
+        }
+        if (req.query.name) {
+            sort.name = parseInt(req.query.name)
+        }
+        this.model.Contact.paginate({user : req.user._id} , {page , limit , sort}).then((contacts) => {
             if (contacts) {
-                return res.json({
-                    data : new ContactTransform().transformCollection(contacts),
-                    success : true
-
-                })
-            }
-            return res.json({
-                message : 'Contact empty',
-                success : false
-            })
-
+                        return res.json({
+                            data : new ContactTransform().withPagination().transformCollection(contacts),
+                            success : true
+                        })
+                    }
+                    return res.json({
+                        message : 'Contact empty',
+                        success : false
+                    })
+        }).catch((e) => {
+            console.log(e)
         })
-
     }
 
     store(req , res) {
